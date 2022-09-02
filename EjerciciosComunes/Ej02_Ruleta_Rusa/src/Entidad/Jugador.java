@@ -4,8 +4,12 @@ id (representa el número del jugador), nombre (Empezara con Jugador más su ID,
 y mojado (indica si está mojado o no el jugador). 
 
 El número de jugadores será decidido por el usuario, pero debe ser entre 1 y 6. Si no está en este rango, por defecto será 6. 
+<<<<<<< HEAD
 */
 
+=======
+ */
+>>>>>>> 408e2df21b45117c06e848cfad87c91040f51ed5
 package Entidad;
 
 /**
