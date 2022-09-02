@@ -1,7 +1,9 @@
 /*
-Realizar el game de la ruleta rusa de agua en Java. Como muchos saben, el game se trata de 
+Realizar el juego de la ruleta rusa de agua en Java. Como muchos saben, el juego se trata de 
 un número de jugadores, que, con un revolver de agua, el cual posee una sola carga de agua, 
-se dispara y se moja. Las clases por hacer del game son las siguientes:
+se dispara y se moja. 
+
+Las clases por hacer del game son las siguientes:
 
 Clase Revolver de agua:
 •  llenarRevolver()
