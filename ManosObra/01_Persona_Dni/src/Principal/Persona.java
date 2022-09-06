@@ -11,7 +11,7 @@ package Principal;
  */
 public class Persona {
     
-///ATRIBUTOS:    
+///ATTR:    
     private String nombre;
     private String apellido;
     private Dni dni;

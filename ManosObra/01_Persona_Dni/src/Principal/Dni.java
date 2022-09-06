@@ -11,12 +11,11 @@ package Principal;
  */
 public class Dni {
     
-///ATRIBUTOS:    
+///ATTR:    
     private char serie;
     private int numero;
     
 ///CONSTR:
-
     public Dni() {
     }
     public Dni(char serie, int numero) {
@@ -39,7 +38,6 @@ public class Dni {
     }
  
 ///TO STRING:
-
     @Override
     public String toString() {
         return "Serie: " + serie + ", N°: " + numero;
