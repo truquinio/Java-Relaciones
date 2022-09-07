@@ -66,10 +66,10 @@ public class Baraja {
 se haya llegado al final, se indica al usuario que no hay más cartas.-*/
     public Carta siguienteCarta() {
 
-        //Tomo un objeto SIGUIENTE CARTA de la BARAJA INICIAL.-
+        //Tomo un objeto SIGUIENTE CARTA (Con posición 0) de la BARAJA INICIAL.-
         Carta nextCard = this.barajaInicial.get(0);
 
-        //Lo SACO de la BARAJA INICIAL.-
+        //Lo REMUEVO de la BARAJA INICIAL.-
         barajaInicial.remove(0);
 
         //AGREGO objeto SIGUIENTE CARTA a la lista CARTAS REPARTIDAS.-
@@ -97,7 +97,7 @@ debemos indicárselo al usuario.-*/
             //Creo una LISTA AUXILIAR para contener las CARTAS QUE PIDA.-
             ArrayList<Carta> repartidas = new ArrayList<>();
 
-            //Recorro la LISTA desde 0 hasta la CANTIDAD de CARTAS que pedí en el MAIN.-
+            //Recorro la LISTA desde 0 hasta la CANTIDAD de CARTAS que pedí en el SERVICIO.-
             for (int i = 0; i < cantidadCartas; i++) {
 
                 //Uso el MÉTODO SIGUIENTE CARTA, para agregar las repartidas.-
@@ -126,7 +126,6 @@ indicárselo al usuario.-*/
             //Con RETURN hago que termine la CONDICIÓN del IF.-
             return;
         }
-
         System.out.println("Naipes repartidos:");
 
         //Recorro y muestro las CARTAS REPARTIDAS con FOR EACH.-
