@@ -51,7 +51,7 @@ public class Baraja {
 
         //SHUFFLE: modifica la posición de los elementos de una lista de manera aleatoria. 
         Collections.shuffle(this.barajaInicial);
-        
+
         System.out.print(this.barajaInicial);
     }
 
@@ -62,7 +62,7 @@ public class Baraja {
     }
 
 
-/*•     siguienteCarta(): devuelve la siguiente carta que está en la baraja, cuando no haya más o 
+    /*•     siguienteCarta(): devuelve la siguiente carta que está en la baraja, cuando no haya más o 
 se haya llegado al final, se indica al usuario que no hay más cartas.-*/
     public Carta siguienteCarta() {
 
@@ -82,14 +82,11 @@ se haya llegado al final, se indica al usuario que no hay más cartas.-*/
         return nextCard;
     }
 
-/*•     darCartas(): dado un número de cartas que nos pidan, le devolveremos ese número de 
+    /*•     darCartas(): dado un número de cartas que nos pidan, le devolveremos ese número de 
 cartas. En caso de que haya menos cartas que las pedidas, no devolveremos nada, pero 
 debemos indicárselo al usuario.-*/
-
-//PIDO una CANTIDAD de CARTAS desde el MAIN y las paso x parámetro
-   
-    public ArrayList<Carta> darCartas(int cantidadCartas) {
-//    public ArrayList<Carta> darCartas() {
+//PIDO una CANTIDAD de CARTAS desde el SERVICIO y las paso x parámetro
+    public void darCartas(int cantidadCartas) {
 
         //En caso de que haya MAS CARTAS DISPONIBLES que las pedidas.-
         if (cartasDisponibles() >= cantidadCartas) {
@@ -102,20 +99,16 @@ debemos indicárselo al usuario.-*/
 
                 //Uso el MÉTODO SIGUIENTE CARTA, para agregar las repartidas.-
                 repartidas.add(this.siguienteCarta());
+
             }
-            //RETORNO las CARTAS que REPARTÍ.-
-            return repartidas;
+        } else {
+
+            System.out.println("\nNo hay tantos naipes.");
         }
-
-        System.out.println("\nNo hay tantos naipes.");
-
-        //RETORNO una nueva LISTA de clase CARTA.-
-        return new ArrayList<Carta>();
     }
 
 /*•     cartasMonton(): mostramos aquellas cartas que ya han salido, si no ha salido ninguna 
 indicárselo al usuario.-*/
-    
     public void cartasMonton() {
 
         //Si las CARTAS REPARTIDAS es = 0
