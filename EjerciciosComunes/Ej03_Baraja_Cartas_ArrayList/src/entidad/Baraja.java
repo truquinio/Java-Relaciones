@@ -61,8 +61,7 @@ public class Baraja {
         return this.barajaInicial.size();
     }
 
-
-    /*•     siguienteCarta(): devuelve la siguiente carta que está en la baraja, cuando no haya más o 
+/*•     siguienteCarta(): devuelve la siguiente carta que está en la baraja, cuando no haya más o 
 se haya llegado al final, se indica al usuario que no hay más cartas.-*/
     public Carta siguienteCarta() {
 
@@ -82,7 +81,7 @@ se haya llegado al final, se indica al usuario que no hay más cartas.-*/
         return nextCard;
     }
 
-    /*•     darCartas(): dado un número de cartas que nos pidan, le devolveremos ese número de 
+/*•     darCartas(): dado un número de cartas que nos pidan, le devolveremos ese número de 
 cartas. En caso de que haya menos cartas que las pedidas, no devolveremos nada, pero 
 debemos indicárselo al usuario.-*/
 //PIDO una CANTIDAD de CARTAS desde el SERVICIO y las paso x parámetro
@@ -99,7 +98,6 @@ debemos indicárselo al usuario.-*/
 
                 //Uso el MÉTODO SIGUIENTE CARTA, para agregar las repartidas.-
                 repartidas.add(this.siguienteCarta());
-
             }
         } else {
 
