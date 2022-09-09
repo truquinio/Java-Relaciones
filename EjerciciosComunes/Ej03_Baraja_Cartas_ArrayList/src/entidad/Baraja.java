@@ -90,14 +90,11 @@ debemos indicárselo al usuario.-*/
         //En caso de que haya MAS CARTAS DISPONIBLES que las pedidas.-
         if (cartasDisponibles() >= cantidadCartas) {
 
-            //Creo una LISTA AUXILIAR para contener las CARTAS QUE PIDA.-
-            ArrayList<Carta> repartidas = new ArrayList<>();
-
             //Recorro la LISTA desde 0 hasta la CANTIDAD de CARTAS que pedí en el SERVICIO.-
             for (int i = 0; i < cantidadCartas; i++) {
 
                 //Uso el MÉTODO SIGUIENTE CARTA, para agregar las repartidas.-
-                repartidas.add(this.siguienteCarta());
+                cartasRepartidas.add(this.siguienteCarta());
             }
         } else {
 
