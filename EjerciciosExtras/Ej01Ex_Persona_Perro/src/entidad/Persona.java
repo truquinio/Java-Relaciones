@@ -10,6 +10,8 @@ personas con sus respectivos perros.
  */
 package entidad;
 
+import java.util.Objects;
+
 /**
  *
  * @author FT
@@ -22,11 +24,11 @@ public class Persona {
     private int edad;
     private int dni;
     private Perro perro;
-    
+
 ///CONSTR:
     public Persona() {
     }
-        public Persona(String nombre, String apellido, int edad, int dni) {
+    public Persona(String nombre, String apellido, int edad, int dni) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.edad = edad;
@@ -72,9 +74,18 @@ public class Persona {
         this.perro = perro;
     }
 
-///ToSTRING:
+///ToSTRING (MODIFICADO para evitar el bucle infinito de los ToString):
     @Override
     public String toString() {
-        return "Persona // " + "Nombre: " + nombre + ", Apellido: " + apellido + ", Edad: " + edad + ", DNI: " + dni + ", Perro: " + perro;
+
+        //Si la persona aún no adoptó (PERRO = NULO).-
+        if (Objects.isNull(this.perro)) {
+
+            //Retorna Persona con todos los atributos menos PERRO ADOPTADO.-
+            return "Persona // " + "Nombre: " + nombre + ", Apellido: " + apellido + ", Edad: " + edad + ", DNI: " + dni + ", Perro adoptado: 0";
+        }
+
+        //Si la persona ya adoptó un perro; retorna Persona con todos los atributos + el nombre y la raza del Perro.-
+        return "Persona // " + "Nombre: " + nombre + ", Apellido: " + apellido + ", Edad: " + edad + ", DNI: " + dni + ", Perro adoptado / Nombre: " + this.perro.getNombre() + " / Raza: " + this.perro.getRaza();
     }
 }

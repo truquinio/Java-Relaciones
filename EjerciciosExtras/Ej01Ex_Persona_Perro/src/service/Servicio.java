@@ -40,7 +40,7 @@ public class Servicio {
         System.out.println("¿Cuántas personas desea cargar?");
         int cantidadPersonas = leer.nextInt();
 
-///Crear variables auxiliares de nombre, apellido... para que no me escriba solo el última
+///Crear variables auxiliares de nombre, apellido... para que no me escriba solo la última.-
         String nombre;
         String apellido;
         int edad;
@@ -96,7 +96,6 @@ public class Servicio {
                 contador++;
             }
             int elegirRaza = leer.nextInt();*/
-            
             System.out.println("Edad del perro:");
             edad = leer.nextInt();
 
@@ -142,7 +141,7 @@ public class Servicio {
 
             System.out.println("Para " + personasForEach);
 
-            System.out.println("\nLos perros disponibles son:");
+            System.out.println("\nLos perros disponibles son:\n");
 
             for (Perro recorrePerrosForEach : listaPerros) {
 
@@ -150,33 +149,80 @@ public class Servicio {
                 System.out.println(recorrePerrosForEach);
             }
 
-            System.out.println("Escriba el perro que desea adoptar:");
+            System.out.println("\nEscriba el perro que desea adoptar:");
             String nombrePerro = leer.next();
 
-            if (dog.getNombre().equals(nombrePerro)) {
+            boolean existe = false;
+            boolean adoptado = false;
 
-                for (Perro perroAdoptadoForEach : listaPerros) {
-
-                    System.out.println(perroAdoptadoForEach);
-
-                    if (Objects.isNull(dog.getDueno())) {
-                        dog.setDueno(person);
-
-                        System.out.println("¡¡FELICIDADES Adoptaste un perro!!");
-                        person.setPerro(dog);
-
-                    } else {
-
-                        System.out.println("Ese perro ya fue adoptado.");
-                    }
+            for (Perro perroAdoptadoForEach : listaPerros) {
+                
+                if (perroAdoptadoForEach.getNombre().equals(nombrePerro) && Objects.isNull(dog.getDueno())) {
+                    
+                    perroAdoptadoForEach.setDueno(personasForEach);
+                    
+                    personasForEach.setPerro(perroAdoptadoForEach);
+                    
+                    System.out.println("¡¡FELICIDADES adoptaste un perro!!");
+                   
+                    break;
                 }
-            } else {
-                System.out.println("Perro inexistente.");
+                
+                if (perroAdoptadoForEach.getNombre().equals(nombrePerro) && !Objects.isNull(dog.getDueno())) {
+                    
+                    System.out.println("Ya fue adoptado, boludo!");
+                    
+                    break;
+                }
+                
+                if (!perroAdoptadoForEach.getNombre().equals(nombrePerro) && perroAdoptadoForEach.getNombre().equals(listaPerros.get(listaPerros.size()-1).getNombre())) {
+                    
+                    System.out.println("El perro no existe!");
+                }
             }
-        }
+            
+            /*for (Perro perroAdoptadoForEach : listaPerros) {
+            
+            //Me fijo si el NOMBRE del perro es igual.-
+            if (dog.getNombre().equals(nombrePerro)) {
+            
+            existe = true;
+            
+            if (Objects.isNull(dog.getDueno())) {
+            
+            adoptado = false;
+            
+            dog.setDueno(person);
+            
+            System.out.println("¡¡FELICIDADES adoptaste un perro!!");
+            
+            person.setPerro(dog);
+            
+            break;
+            
+            } else {
+            
+            adoptado = true;
+            }
+            } else {
+            
+            existe = false;
+            }
+            }
+            if (adoptado == true) {
+            
+            System.out.println("Ese perro ya fue adoptado.");
+            
+            }
+            if (existe == false) { //NO EXISTE!!!!!!
+            
+            System.out.println("Perro inexistente.");
+            }
+            }*/
+    }
     }
 
-///FÁBRICA DE PERSONAS:
+    ///FÁBRICA DE PERSONAS:
     public void fabricaPersonas() {
 
         System.out.println("¿Cuántas personas desea cargar?");
@@ -191,7 +237,7 @@ public class Servicio {
 ///FÁBRICA DE PERROS:
     public void fabricaPerros() {
 
-        System.out.println("¿Cuántos perros desea cargar??");
+        System.out.println("¿Cuántos perros desea cargar?");
         int cantidadPerros = leer.nextInt();
 
         for (int i = 0; i < cantidadPerros; i++) {
@@ -200,3 +246,27 @@ public class Servicio {
         }
     }
 }
+
+
+/*if (dog.getNombre().equals(nombrePerro)) {
+
+                for (Perro perroAdoptadoForEach : listaPerros) {
+                
+                System.out.println(perroAdoptadoForEach);
+                
+                if (Objects.isNull(dog.getDueno())) {
+                dog.setDueno(person);
+                
+                System.out.println("¡¡FELICIDADES Adoptaste un perro!!");
+                person.setPerro(dog);
+                
+                } else {
+                
+                System.out.println("Ese perro ya fue adoptado.");
+                }
+                }
+                
+                System.out.println("PRUEBA");
+            } else {
+                System.out.println("Perro inexistente.");
+            }*/

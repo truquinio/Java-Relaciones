@@ -12,6 +12,7 @@ package entidad;
 
 import Enum.Raza;
 import Enum.Tamanio;
+import java.util.Objects;
 
 /**
  *
@@ -25,11 +26,11 @@ public class Perro {
     private int edad;
     private Tamanio tamanio;
     private Persona dueno;
-    
+
 ///CONSTR:
     public Perro() {
     }
-     public Perro(String nombre, Raza raza, int edad, Tamanio tamanio) {
+    public Perro(String nombre, Raza raza, int edad, Tamanio tamanio) {
         this.nombre = nombre;
         this.raza = raza;
         this.edad = edad;
@@ -42,10 +43,10 @@ public class Perro {
         this.tamanio = tamanio;
         this.dueno = dueno;
     }
-    
+
 ///G & S:
     public String getNombre() {
-        return nombre;
+        return this.nombre;
     }
     public void setNombre(String nombre) {
         this.nombre = nombre;
@@ -75,10 +76,18 @@ public class Perro {
         this.dueno = dueno;
     }
 
-///ToSTRING:
-
+///ToSTRING (MODIFICADO para evitar el bucle infinito de los ToString):
     @Override
     public String toString() {
-        return "Perro // Nombre: " + nombre + ", Raza: " + raza + ", Edad: " + edad + ", Tamaño: " + tamanio + ", Dueño: " + dueno;
+
+        //Si la persona aún no adoptó (PERRO = NULO).-
+        if (Objects.isNull(this.dueno)) {
+
+            //Retorna Perro con todos los atributos menos la PERSONA.-
+            return "Perro // Nombre: " + nombre + ", Raza: " + raza + ", Edad: " + edad + ", Tamaño: " + tamanio + ", Dueño: 0";
+        }
+
+        //Si la persona ya adoptó un perro; retorna Persona con todos los atributos + el nombre y apellido de la PERSONA.-
+        return "Perro // Nombre: " + nombre + ", Raza: " + raza + ", Edad: " + edad + ", Tamaño: " + tamanio + ", Dueño: " + this.dueno.getNombre() + " " + this.dueno.getApellido();
     }
 }

@@ -41,7 +41,7 @@ public class Menu {
             System.out.println("0. Salir.");
 
             opcionMenu = leer.nextInt();
-            System.out.println("");
+            System.out.println();
 
             switch (opcionMenu) {
 
@@ -49,7 +49,7 @@ public class Menu {
 
                     service.crearPersona();
 
-                    System.out.println("");
+                    System.out.println();
 
                     break;
 
@@ -57,7 +57,7 @@ public class Menu {
 
                     service.crearPerro();
 
-                    System.out.println("");
+                    System.out.println();
 
                     break;
 
@@ -65,7 +65,7 @@ public class Menu {
 
                     service.mostrarPersonas();
 
-                    System.out.println("");
+                    System.out.println();
 
                     break;
 
@@ -73,14 +73,14 @@ public class Menu {
 
                     service.mostrarPerros();
 
-                    System.out.println("");
+                    System.out.println();
 
                     break;
 
                 case 5:
                     service.adoptarPerro();
                     
-                    System.out.println("");
+                    System.out.println();
                     
                     break;
 
