@@ -73,7 +73,7 @@ public class Persona {
     public void setPerro(Perro perro) {
         this.perro = perro;
     }
-
+    
 ///ToSTRING (MODIFICADO para evitar el bucle infinito de los ToString):
     @Override
     public String toString() {

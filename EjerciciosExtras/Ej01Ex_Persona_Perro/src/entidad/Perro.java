@@ -87,7 +87,7 @@ public class Perro {
             return "Perro // Nombre: " + nombre + ", Raza: " + raza + ", Edad: " + edad + ", Tamaño: " + tamanio + ", Dueño: 0";
         }
 
-        //Si la persona ya adoptó un perro; retorna Persona con todos los atributos + el nombre y apellido de la PERSONA.-
+        //Si la persona ya adoptó un perro; retorna Perro con todos los atributos + el nombre y apellido de la PERSONA.-
         return "Perro // Nombre: " + nombre + ", Raza: " + raza + ", Edad: " + edad + ", Tamaño: " + tamanio + ", Dueño: " + this.dueno.getNombre() + " " + this.dueno.getApellido();
     }
 }

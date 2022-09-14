@@ -35,6 +35,7 @@ public class Servicio {
 
     ArrayList<Perro> listaPerros = new ArrayList<>();
 
+///CREAR PERSONA:
     public void crearPersona() {
 
         System.out.println("¿Cuántas personas desea cargar?");
@@ -64,6 +65,7 @@ public class Servicio {
         }
     }
 
+///CREAR PERRO:
     public void crearPerro() {
 
         System.out.println("¿Cuántos perros desea cargar?");
@@ -96,6 +98,7 @@ public class Servicio {
                 contador++;
             }
             int elegirRaza = leer.nextInt();*/
+            
             System.out.println("Edad del perro:");
             edad = leer.nextInt();
 
@@ -105,6 +108,8 @@ public class Servicio {
                 System.out.println(posicionTamanio + " " + Tamanio.values()[posicionTamanio]);
             }
             posicionTamanio = leer.nextInt();
+            
+            listaPerros.add(new Perro(nombre, Raza.values()[posicionRaza], edad, Tamanio.values()[posicionTamanio]));
 
             /*OTRA FORMA:
             contador = 0;
@@ -113,10 +118,10 @@ public class Servicio {
                 System.out.println(tamanioForEach);
             }
             int elegirTamanio = leer.nextInt();*/
-            listaPerros.add(new Perro(nombre, Raza.values()[posicionRaza], edad, Tamanio.values()[posicionTamanio]));
         }
     }
 
+///MOSTRAR PERSONA:
     public void mostrarPersonas() {
 
         System.out.println("Mostrando Personas:\n");
@@ -135,6 +140,7 @@ public class Servicio {
         }
     }
 
+///ADOPTAR PERRO:
     public void adoptarPerro() {
 
         for (Persona personasForEach : listaPersonas) {
@@ -145,84 +151,131 @@ public class Servicio {
 
             for (Perro recorrePerrosForEach : listaPerros) {
 
-                //Muestro 
+                //Muestro los perros disponibles.-
                 System.out.println(recorrePerrosForEach);
             }
 
             System.out.println("\nEscriba el perro que desea adoptar:");
             String nombrePerro = leer.next();
 
-            boolean existe = false;
-            boolean adoptado = false;
+            for (Perro perroAdoptado : listaPerros) {
 
-            for (Perro perroAdoptadoForEach : listaPerros) {
-                
-                if (perroAdoptadoForEach.getNombre().equals(nombrePerro) && Objects.isNull(dog.getDueno())) {
-                    
-                    perroAdoptadoForEach.setDueno(personasForEach);
-                    
-                    personasForEach.setPerro(perroAdoptadoForEach);
-                    
+                //Si coincide el NOMBRE y el DUEÑO es NULO:
+                if (perroAdoptado.getNombre().equals(nombrePerro) && Objects.isNull(perroAdoptado.getDueno())) {
+
+                    perroAdoptado.setDueno(personasForEach);
+
+                    personasForEach.setPerro(perroAdoptado);
+
                     System.out.println("¡¡FELICIDADES adoptaste un perro!!");
-                   
+
                     break;
                 }
-                
-                if (perroAdoptadoForEach.getNombre().equals(nombrePerro) && !Objects.isNull(dog.getDueno())) {
-                    
-                    System.out.println("Ya fue adoptado, boludo!");
-                    
+                //Si coincide el NOMBRE, pero el DUEÑO NO es NULO:
+                if (perroAdoptado.getNombre().equals(nombrePerro) && !Objects.isNull(perroAdoptado.getDueno())) {
+
+                    System.out.println(nombrePerro + " ya fue adoptado.");
+
                     break;
                 }
-                
-                if (!perroAdoptadoForEach.getNombre().equals(nombrePerro) && perroAdoptadoForEach.getNombre().equals(listaPerros.get(listaPerros.size()-1).getNombre())) {
-                    
+                //Si no coincide el NOMBRE y vemos si el NOMBRE tmb coincide con la última posición de la LISTA PERROS.-
+                if (!perroAdoptado.getNombre().equals(nombrePerro) && perroAdoptado.getNombre().equals(listaPerros.get(listaPerros.size() - 1).getNombre())) {
+
                     System.out.println("El perro no existe!");
                 }
             }
-            
-            /*for (Perro perroAdoptadoForEach : listaPerros) {
+        }
+    }
+
+    /* OTRA FORMA:
+        boolean existe = false;
+        boolean adoptado = false;
+        
+        for (Perro perroAdoptadoForEach : listaPerros) {
             
             //Me fijo si el NOMBRE del perro es igual.-
             if (dog.getNombre().equals(nombrePerro)) {
-            
             existe = true;
-            
             if (Objects.isNull(dog.getDueno())) {
-            
             adoptado = false;
-            
             dog.setDueno(person);
-            
-            System.out.println("¡¡FELICIDADES adoptaste un perro!!");
-            
+            Sysem.out.println("¡¡FELICIDADES adoptaste un perro!!");
             person.setPerro(dog);
-            
             break;
-            
             } else {
-            
-            adoptado = true;
-            }
+            adoptado = true;}
             } else {
-            
-            existe = false;
-            }
+            existe = false;}
             }
             if (adoptado == true) {
-            
             System.out.println("Ese perro ya fue adoptado.");
-            
             }
             if (existe == false) { //NO EXISTE!!!!!!
-            
             System.out.println("Perro inexistente.");
+            }}*/
+
+///ELIMINAR PERRO:
+    public void eliminarPerros() {
+
+        //Muestro los perros disponibles.-
+        mostrarPerros();
+
+        System.out.println("\nIngrese el perro que desea eliminar");
+        String perroEliminado = leer.next();
+
+        for (Perro porEliminar : listaPerros) {
+
+            if (porEliminar.getNombre().equals(perroEliminado) && Objects.isNull(porEliminar.getDueno())) {
+
+                porEliminar.getDueno().setPerro(null);
+                listaPerros.remove(porEliminar);
+
+                System.out.println("Perro eliminado");
+
+                break;
             }
-            }*/
+        }
     }
+    
+///ELIMINAR PERSONA:
+    public void eliminarPersonas() {
+
+        //Muestro las personas disponibles.-
+        mostrarPersonas();
+
+        System.out.println("\nIngrese la persona que desea eliminar");
+        String personaEliminada = leer.next();
+
+        for (Persona porEliminar : listaPersonas) {
+
+            if (porEliminar.getNombre().equals(personaEliminada) && Objects.isNull(person.getPerro())) {
+
+                porEliminar.getPerro().setDueno(null);
+                listaPersonas.remove(porEliminar);
+
+                System.out.println("Persona eliminada");
+
+                break;
+            }
+
+        }
+
     }
 
-    ///FÁBRICA DE PERSONAS:
+    /*        Iterator<Perro> iteratorPerros = listaPerros.iterator();
+        
+        while (iteratorPerros.hasNext()){
+        
+        if (iteratorPerros.next().getNombre().equals(perroEliminado)) {
+        
+        iteratorPerros.next().getDueno().getPerro().setDueno(null);
+        
+        iteratorPerros.remove();
+        
+        return;
+        }
+        System.out.println("Perro inexistente.");*/
+///FÁBRICA DE PERSONAS:
     public void fabricaPersonas() {
 
         System.out.println("¿Cuántas personas desea cargar?");
@@ -246,27 +299,3 @@ public class Servicio {
         }
     }
 }
-
-
-/*if (dog.getNombre().equals(nombrePerro)) {
-
-                for (Perro perroAdoptadoForEach : listaPerros) {
-                
-                System.out.println(perroAdoptadoForEach);
-                
-                if (Objects.isNull(dog.getDueno())) {
-                dog.setDueno(person);
-                
-                System.out.println("¡¡FELICIDADES Adoptaste un perro!!");
-                person.setPerro(dog);
-                
-                } else {
-                
-                System.out.println("Ese perro ya fue adoptado.");
-                }
-                }
-                
-                System.out.println("PRUEBA");
-            } else {
-                System.out.println("Perro inexistente.");
-            }*/

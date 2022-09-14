@@ -24,23 +24,35 @@ public class Menu {
 
     public void menuOpciones() {
 
-        int opcionMenu;
+        int opcionMenu = 0;
+        boolean opcionLetra = true;
 
         do {
-            System.out.println("╔══════════════╗");
-            System.out.println("║  Elija una opción: ☻  ║");
-            System.out.println("╚══════════════╝");
+            do {
+                System.out.println("╔══════════════╗");
+                System.out.println("║  Elija una opción: ☻  ║");
+                System.out.println("╚══════════════╝");
 
-            System.out.println("1. Cargar Persona.");
-            System.out.println("2. Cargar Perro.");
-            System.out.println("3. Mostrar Persona.");
-            System.out.println("4. Mostrar Perro.");
-            System.out.println("5. Adoptar Perro.");
-            System.out.println("6. Eliminar Persona.");
-            System.out.println("7. Eliminar Perro.");
-            System.out.println("0. Salir.");
+                System.out.println("1. Cargar Persona.");
+                System.out.println("2. Cargar Perro.");
+                System.out.println("3. Mostrar Persona.");
+                System.out.println("4. Mostrar Perro.");
+                System.out.println("5. Adoptar Perro.");
+                System.out.println("6. Eliminar Persona.");
+                System.out.println("7. Eliminar Perro.");
+                System.out.println("0. Salir.");
 
-            opcionMenu = leer.nextInt();
+                try {
+                    opcionMenu = Integer.parseInt(leer.next());
+                    opcionLetra = false;
+                    
+                } catch (Exception e) {
+                    
+                    leer.reset();
+                }
+            } while (opcionLetra);
+
+            //opcionMenu = leer.nextInt();
             System.out.println();
 
             switch (opcionMenu) {
@@ -79,14 +91,26 @@ public class Menu {
 
                 case 5:
                     service.adoptarPerro();
-                    
+
                     System.out.println();
-                    
+
                     break;
 
                 case 6:
 
+                    service.eliminarPersonas();
+
                     break;
+
+                case 7:
+
+                    service.eliminarPerros();
+
+                    break;
+
+                default:
+
+                    System.out.println("Ingrese una opción válida...\n");
             }
         } while (opcionMenu != 0);
     }
