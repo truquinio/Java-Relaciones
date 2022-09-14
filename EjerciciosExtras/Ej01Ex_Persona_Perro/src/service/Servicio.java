@@ -170,15 +170,18 @@ public class Servicio {
                 //Si coincide el NOMBRE y NO tiene DUEÑO (NULL):
                 if (perroAdoptado.getNombre().equals(nombrePerro) && Objects.isNull(perroAdoptado.getDueno())) {
 
+                    //Cambio el DUEÑO del PERRO ADOPTADO por la PERSONA ADOPTANTE.-
                     perroAdoptado.setDueno(adoptante);
 
+                    //CAMBIO el PERRO de la PERSONA (ADOPTANTE) por PERRO ADOPTADO.-
                     adoptante.setPerro(perroAdoptado);
 
                     System.out.println("¡¡FELICIDADES adoptaste un perro!!");
 
                     break;
                 }
-                //Si coincide el NOMBRE y tiene DUEÑO (!NULL):
+                
+                //Si el NOMBRE ingresado coincide con alguno de LISTA PERROS y SI tiene DUEÑO (!NULL):
                 if (perroAdoptado.getNombre().equals(nombrePerro) && !Objects.isNull(perroAdoptado.getDueno())) {
 
                     System.out.println(nombrePerro + " ya fue adoptado.");
