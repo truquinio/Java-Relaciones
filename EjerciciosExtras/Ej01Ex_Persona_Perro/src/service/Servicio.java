@@ -233,7 +233,7 @@ public class Servicio {
         //Recorro la LISTA PERROS con FOR EACH (Por Eliminar).-
         for (Perro porEliminar : listaPerros) {
 
-            //Si el NOMBRE ingresado coincide con alguno de LISTA PERROS y NO tiene DUEÑO:
+            //Si el NOMBRE ingresado coincide con alguno de LISTA PERROS y NO tiene DUEÑO (NULL):
             if (porEliminar.getNombre().equals(perroEliminado) && Objects.isNull(porEliminar.getDueno())) {
 
                 //Cambio el PERRO ADOPTADO a NULO en el PERRO de la LISTA PERROS (Por Eliminar).-
@@ -261,7 +261,7 @@ public class Servicio {
         //Recorro la LISTA PERSONAS con FOR EACH (Por Eliminar).-
         for (Persona porEliminar : listaPersonas) {
 
-            //Si el NOMBRE ingresado coincide con alguno de LISTA PERSONAS y TIENE PERRO ADOPTADO:
+            //Si el NOMBRE ingresado coincide con alguno de LISTA PERSONAS y tiene PERRO ADOPTADO:
             if (porEliminar.getNombre().equals(personaEliminada) && Objects.isNull(porEliminar.getPerro())) {
 
                 //Cambio el DUEÑO a NULO en el PERRO de la LISTA PERSONAS (Por Eliminar).-
