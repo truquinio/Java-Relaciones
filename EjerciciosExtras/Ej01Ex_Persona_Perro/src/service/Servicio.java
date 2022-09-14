@@ -47,6 +47,7 @@ public class Servicio {
         int edad;
         int dni;
 
+        //Lleno la LISTA de PERSONAS con FOR, para ingresar c/u de los datos.-
         for (int i = 0; i < cantidadPersonas; i++) {
 
             System.out.println("\nNombre:");
@@ -77,6 +78,7 @@ public class Servicio {
         int posicionRaza;
         int posicionTamanio;
 
+        //Lleno la LISTA de PERROS con FOR, para ingresar c/u de los datos.-
         for (int i = 0; i < cantidadPerros; i++) {
 
             System.out.println("\nNombre del perro:");
@@ -126,8 +128,9 @@ public class Servicio {
 
         System.out.println("Mostrando Personas:\n");
 
-        for (Persona personasForEach : listaPersonas) {
-            System.out.println(personasForEach);
+        //Recorro la LISTA PERSONAS con FOR EACH (MUESTRA PERSONAS).-
+        for (Persona muestraPersonas : listaPersonas) {
+            System.out.println(muestraPersonas);
         }
     }
 
@@ -135,43 +138,47 @@ public class Servicio {
 
         System.out.println("Mostrando Perros:\n");
 
-        for (Perro perrosForEach : listaPerros) {
-            System.out.println(perrosForEach);
+        //Recorro la LISTA PERROS con FOR EACH (MUESTRA PERROS).-
+        for (Perro muestraPerros : listaPerros) {
+            System.out.println(muestraPerros);
         }
     }
 
 ///ADOPTAR PERRO:
     public void adoptarPerro() {
 
-        for (Persona personasForEach : listaPersonas) {
+        //Recorro la LISTA PERSONAS con FOR EACH (ADOPTANTE).-
+        for (Persona adoptante : listaPersonas) {
 
-            System.out.println("Para " + personasForEach);
+            System.out.println("Para " + adoptante);
 
             System.out.println("\nLos perros disponibles son:\n");
 
-            for (Perro recorrePerrosForEach : listaPerros) {
+            
+            for (Perro recorrePerros : listaPerros) {
 
                 //Muestro los perros disponibles.-
-                System.out.println(recorrePerrosForEach);
+                System.out.println(recorrePerros);
             }
 
             System.out.println("\nEscriba el perro que desea adoptar:");
             String nombrePerro = leer.next();
 
+            //Recorro la LISTA PERROS con FOR EACH (Perro Adoptado).-
             for (Perro perroAdoptado : listaPerros) {
 
-                //Si coincide el NOMBRE y el DUEÑO es NULO:
+                //Si coincide el NOMBRE y NO tiene DUEÑO (NULL):
                 if (perroAdoptado.getNombre().equals(nombrePerro) && Objects.isNull(perroAdoptado.getDueno())) {
 
-                    perroAdoptado.setDueno(personasForEach);
+                    perroAdoptado.setDueno(adoptante);
 
-                    personasForEach.setPerro(perroAdoptado);
+                    adoptante.setPerro(perroAdoptado);
 
                     System.out.println("¡¡FELICIDADES adoptaste un perro!!");
 
                     break;
                 }
-                //Si coincide el NOMBRE, pero el DUEÑO NO es NULO:
+                //Si coincide el NOMBRE y tiene DUEÑO (!NULL):
                 if (perroAdoptado.getNombre().equals(nombrePerro) && !Objects.isNull(perroAdoptado.getDueno())) {
 
                     System.out.println(nombrePerro + " ya fue adoptado.");
@@ -223,11 +230,16 @@ public class Servicio {
         System.out.println("\nIngrese el perro que desea eliminar");
         String perroEliminado = leer.next();
 
+        //Recorro la LISTA PERROS con FOR EACH (Por Eliminar).-
         for (Perro porEliminar : listaPerros) {
 
+            //Si el NOMBRE ingresado coincide con alguno de LISTA PERROS y NO tiene DUEÑO:
             if (porEliminar.getNombre().equals(perroEliminado) && Objects.isNull(porEliminar.getDueno())) {
 
+                //Cambio el PERRO ADOPTADO a NULO en el PERRO de la LISTA PERROS (Por Eliminar).-
                 porEliminar.getDueno().setPerro(null);
+                
+                //REMUEVO el PERRO de la LISTA PERROS (Por Eliminar).-
                 listaPerros.remove(porEliminar);
 
                 System.out.println("Perro eliminado");
@@ -240,17 +252,22 @@ public class Servicio {
 ///ELIMINAR PERSONA:
     public void eliminarPersonas() {
 
-        //Muestro las personas disponibles.-
+        //MUESTRO las PERSONAS disponibles.-
         mostrarPersonas();
 
         System.out.println("\nIngrese la persona que desea eliminar");
         String personaEliminada = leer.next();
 
+        //Recorro la LISTA PERSONAS con FOR EACH (Por Eliminar).-
         for (Persona porEliminar : listaPersonas) {
 
-            if (porEliminar.getNombre().equals(personaEliminada) && Objects.isNull(person.getPerro())) {
+            //Si el NOMBRE ingresado coincide con alguno de LISTA PERSONAS y TIENE PERRO ADOPTADO:
+            if (porEliminar.getNombre().equals(personaEliminada) && Objects.isNull(porEliminar.getPerro())) {
 
+                //Cambio el DUEÑO a NULO en el PERRO de la LISTA PERSONAS (Por Eliminar).-
                 porEliminar.getPerro().setDueno(null);
+                
+                //REMUEVO la PERSONA de la LISTA PERSONAS (Por Eliminar).-
                 listaPersonas.remove(porEliminar);
 
                 System.out.println("Persona eliminada");
@@ -260,7 +277,7 @@ public class Servicio {
         }
     }
 
-    /*        Iterator<Perro> iteratorPerros = listaPerros.iterator();
+    /*  Iterator<Perro> iteratorPerros = listaPerros.iterator();
         
         while (iteratorPerros.hasNext()){
         
