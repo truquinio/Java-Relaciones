@@ -41,7 +41,7 @@ public class Servicio {
         System.out.println("¿Cuántas personas desea cargar?");
         int cantidadPersonas = leer.nextInt();
 
-///Crear variables auxiliares de nombre, apellido... para que no me escriba solo la última.-
+        //Crear variables auxiliares de nombre, apellido... para que no me escriba solo la última.-
         String nombre;
         String apellido;
         int edad;
@@ -71,7 +71,7 @@ public class Servicio {
         System.out.println("¿Cuántos perros desea cargar?");
         int cantidadPerros = leer.nextInt();
 
-//Crear variables auxiliares de nombre, apellido... para que no me escriba solo el último con el FOR.-
+        //Crear variables auxiliares de nombre, apellido... para que no me escriba solo el último con el FOR.-
         String nombre;
         int edad;
         int posicionRaza;
@@ -257,9 +257,7 @@ public class Servicio {
 
                 break;
             }
-
         }
-
     }
 
     /*        Iterator<Perro> iteratorPerros = listaPerros.iterator();
@@ -275,6 +273,7 @@ public class Servicio {
         return;
         }
         System.out.println("Perro inexistente.");*/
+    
 ///FÁBRICA DE PERSONAS:
     public void fabricaPersonas() {
 
