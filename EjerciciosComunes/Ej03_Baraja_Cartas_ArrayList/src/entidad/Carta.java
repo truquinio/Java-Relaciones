@@ -22,7 +22,7 @@ public class Carta {
 ///CONSTR:
     public Carta() {
     }
-
+    
     public Carta(Numero numero, Palo palo) {
         this.numero = numero;
         this.palo = palo;
